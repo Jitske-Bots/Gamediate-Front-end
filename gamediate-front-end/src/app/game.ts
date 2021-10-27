@@ -1,11 +1,11 @@
 export interface Game {
-    ID: number;
-    Title: string;
-    Genre: string;
-    Description: string;
-    ReleaseDate: Date;
-    Price: number;
-    Image: string;
-    Developer: string;
-    Publisher: string;
+    id: number;
+    title: string;
+    genre: string;
+    description: string;
+    releaseDate: Date;
+    price: number;
+    image: string;
+    developer: string;
+    publisher: string;
   }
