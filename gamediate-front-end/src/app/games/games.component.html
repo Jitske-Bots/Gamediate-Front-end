@@ -1,7 +1,17 @@
 <p>Games:</p>
 <ul class="games">
     <li *ngFor="let game of games">
-        <p>{{game.title}}</p>
+        <mat-card>
+            <mat-card-header>
+                <img
+                  src="{{game.image}}"
+                  mat-card-avatar />
+            </mat-card-header>
+            <mat-card-content>
+                {{game.title}}
+            </mat-card-content>
+        </mat-card>
     </li>
 </ul>
+
 
