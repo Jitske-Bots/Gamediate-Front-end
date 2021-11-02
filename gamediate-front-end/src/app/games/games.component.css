@@ -12,5 +12,12 @@ img {
     top:20px;
 }
 .header {
-    height: 100px;
+    height: 80px;
+}
+.games {
+    justify-content: center;
+}
+.text {
+    padding-left: 5%;
+    padding-top: 3%;
 }

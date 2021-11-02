@@ -4,6 +4,9 @@
     </button>
     <span>Gamediate</span>
     <span class="example-spacer"></span>
+    <button mat-icon-button class="cart-button" aria-lable="cart-button with cart icon" (click)="btnClick();">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
   </mat-toolbar>
-  
-<app-games></app-games>
+
+<router-outlet></router-outlet>
