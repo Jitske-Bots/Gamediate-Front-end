@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./Dockerfile
+          file: '$(Build.SourcesDirectory)/gamediate-front-end/dockerfile'
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/gamediatefrontend:latest
 
