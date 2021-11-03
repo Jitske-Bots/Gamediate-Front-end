@@ -8,6 +8,7 @@ trigger:
 resources:
 - repo: self
 
+
 variables:
   tag: '$(Build.BuildId)'
 
@@ -21,9 +22,20 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Login to ACR
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/gamediate-front-end/dockerfile'
+        command: login
+        containerRegistry: dockerRegistryServiceConnection1
+    - task: Docker@2
+      displayName: Login to Docker Hub
+      inputs:
+        command: login
+        containerRegistry: dockerRegistryServiceConnection2
+    - task: Docker@2
+      displayName: Build and Push
+      inputs:
+        command: buildAndPush
+        repository: gamediatefrontend
         tags: |
-          $(tag)
+          latest
+          
