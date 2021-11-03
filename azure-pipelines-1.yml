@@ -25,12 +25,12 @@ stages:
       displayName: Login to ACR
       inputs:
         command: login
-        containerRegistry: dockerRegistryServiceConnection1
+        containerRegistry: Dockerconnection
     - task: Docker@2
       displayName: Login to Docker Hub
       inputs:
         command: login
-        containerRegistry: dockerRegistryServiceConnection2
+        containerRegistry: Dockerconnection
     - task: Docker@2
       displayName: Build and Push
       inputs:
