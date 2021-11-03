@@ -3,6 +3,7 @@
 
 # Use official node image as the base image
 FROM node:latest as build
+LABEL author="Jitske"
 
 # Set the working directory
 WORKDIR /usr/local/app
@@ -26,4 +27,6 @@ FROM nginx:latest
 COPY --from=build /usr/local/app/dist/gamediate-front-end /usr/share/nginx/html
 
 # Expose port 80
-EXPOSE 80
+EXPOSE 80 3000
+
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
