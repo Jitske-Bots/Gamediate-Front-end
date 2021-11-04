@@ -1,12 +1,7 @@
-
-#sets the base image (a skeleton)
 FROM node:14.17.6-alpine as build-step
 RUN mkdir -p /app
-#set the working directory
 WORKDIR /app
-#copies files/folders from the source to the destination
 COPY package.json /app
-#install node modules
 RUN npm install
 COPY . /app
 RUN npm run build --prod
