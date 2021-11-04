@@ -27,6 +27,6 @@ stages:
       displayName: Build an image
       inputs:
         command: build
-        dockerfile: '$(Build.SourcesDirectory)/gamediate-front-end/dockerfile'
+        dockerfile: '$(Build.SourcesDirectory)/Gamediate-Front-end/gamediate-front-end/dockerfile'
         tags: |
           $(tag)
