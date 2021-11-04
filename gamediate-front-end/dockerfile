@@ -15,7 +15,7 @@ COPY . /app/
 RUN npm install -g npm@8.1.2
 
 # Generate the build of the application
-RUN npm run build
+RUN npm run-script build
 
 # Stage 2: Serve app with nginx server
 
