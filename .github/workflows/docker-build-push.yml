@@ -1,13 +1,18 @@
-name: CI to Docker Hub
+# This is a basic workflow to help you get started with Actions
+
+name: CD-docker
+
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-    
-jobs:
+  pull_request:
+    branches: [ main ]
 
+jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     
       - name: Check Out Repo 
@@ -28,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: '$(Build.SourcesDirectory)/gamediate-front-end/dockerfile'
+          file: gamediate-front-end/dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/gamediatefrontend:latest
 
