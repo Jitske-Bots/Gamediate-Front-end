@@ -5,6 +5,6 @@ COPY package.json /app
 RUN npm install
 COPY . /app
 RUN npm run build --prod
-EXPOSE 80 443
+EXPOSE 3000
 
 
