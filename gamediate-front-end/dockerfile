@@ -3,7 +3,7 @@ RUN mkdir -p /app
 WORKDIR /gamediate-front-end/app
 COPY gamediate-front-end/package.json /app
 RUN npm install
-COPY . /app
+COPY . gamediate-front-end/app
 RUN npm run build --prod
 EXPOSE 80 443
 
