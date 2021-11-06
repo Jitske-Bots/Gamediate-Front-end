@@ -29,14 +29,8 @@ stages:
         containerRegistry: 'Dockerconnection'
         command: 'login'
     - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/gamediate-front-end/dockerfile'
-        tags: |
-          $(tag)
-    - task: Docker@2
       inputs:
         containerRegistry: 'Dockerconnection'
         repository: 'gamediatefrontend'
-        command: 'push'
+        command: 'buildAndPush'
+        Dockerfile: '$(Build.SourcesDirectory)/gamediate-front-end/dockerfile'
