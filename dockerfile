@@ -1,9 +1,9 @@
 FROM node:14.17.6-alpine as build-step
 RUN mkdir -p /app
-WORKDIR /gamediate-front-end/app
-COPY gamediate-front-end/package.json /app
+WORKDIR /app
+COPY package.json /app
 RUN npm install
-COPY . gamediate-front-end/app
+COPY . /app
 RUN npm run build --prod
 EXPOSE 80 443
 
