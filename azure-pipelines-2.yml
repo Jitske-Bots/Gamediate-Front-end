@@ -35,3 +35,8 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/gamediate-front-end/dockerfile'
         tags: |
           $(tag)
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'Dockerconnection'
+        repository: 'gamediatefrontend'
+        command: 'push'
