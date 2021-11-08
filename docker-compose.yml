@@ -2,11 +2,11 @@ version: "3.9"
 services:
   app: # name of the first service
     build:
-      context: app
+      context: ./
       dockerfile: Dockerfile
     ports:
       - "4200:4200" # specify port forewarding
   backend: # name of the third service
     image: jitske0/gamediatebackend:latest # specify image to build container from
     ports:
-      - "44300:44300" #specify ports forewarding
+      - "44300:80" #specify ports forewarding
