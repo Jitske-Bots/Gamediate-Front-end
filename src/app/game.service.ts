@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GameService {
-  private gameURL = "https://localhost:44300/games"
+  private gameURL = "http://localhost:44300/games"
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
