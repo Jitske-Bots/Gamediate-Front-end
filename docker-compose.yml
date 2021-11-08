@@ -1,15 +1,10 @@
 version: "3.9"
 services:
-  web:
-    build: .
-    ports: 
-      - "3000:80"
-      volumes:
-        - .:/code
-        - logvolume01:/var/log
-      links:
-        - redis
-    redis:
-      image: redis
-  volumes:
-    logvolume01: {}
+  angular: # name of the first service
+    build: ./Dockerfile # specify the directory of the Dockerfile
+    ports:
+      - "4200:4200" # specify port forewarding
+  backend: # name of the third service
+    image: jitske0/gamediatebackend:latest # specify image to build container from
+    ports:
+      - "44300:44300" #specify ports forewarding
