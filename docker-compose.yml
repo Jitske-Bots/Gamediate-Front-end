@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   angular: # name of the first service
-    build: ./Dockerfile # specify the directory of the Dockerfile
+    build: C:\Users\Jitske\OneDrive\Documents\GitHub\Gamediate-Front-end\Dockerfile # specify the directory of the Dockerfile
     ports:
       - "4200:4200" # specify port forewarding
   backend: # name of the third service
