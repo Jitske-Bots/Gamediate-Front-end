@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'gamediate-front-end';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private _cookieService:CookieService) {
 
   }
   ngOnInit(): void {
@@ -19,5 +21,6 @@ export class AppComponent {
   btnClick(): void {
     this.router.navigateByUrl('/cart')
   }
+
 
 }

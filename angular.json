@@ -69,8 +69,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "gamediate-front-end:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "gamediate-front-end:build:production"
             },
             "development": {
               "browserTarget": "gamediate-front-end:build:development"

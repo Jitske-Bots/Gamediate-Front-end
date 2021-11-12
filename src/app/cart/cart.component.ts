@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'; 
+import { CartService } from '../cart.service';
 
 
 @Component({
@@ -9,12 +10,19 @@ import {Router} from '@angular/router';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private route:Router) { }
+    public gamesID: number[] = [];
+
+  constructor(private route:Router, private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.gamesID = this.getCart();
+    console.log(this.gamesID.length)
   }
   goToCart() {
     this.route.navigate(['/', 'cart']);
+  }
+  getCart():number[]{
+    return this.cartService.getCart();
   }
 
 }

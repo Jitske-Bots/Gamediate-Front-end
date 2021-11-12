@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { CartComponent } from './cart/cart.component';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { CartComponent } from './cart/cart.component';
     MatToolbarModule,
     MatIconModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CookieService,],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
