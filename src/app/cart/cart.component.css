@@ -1,0 +1,25 @@
+[fxFlex]::nth-child(3n) {
+    padding-right: 0px;
+}
+.content {
+    overflow: hidden;
+    padding: 16px;
+}
+img {
+    max-width: 250px;
+    max-height: 150px;
+    min-width: 250px;
+    min-height: 150px; 
+ }
+ .purchase {
+     padding-left: 16px;
+     padding-top: 10px;
+ }
+.mat-elevation-z4 {
+    background-color: rgba(0, 0, 0, 0, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(43, 44, 48, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+ }

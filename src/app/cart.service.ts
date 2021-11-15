@@ -3,28 +3,36 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Game } from './game';
+import { Order } from './order';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  private cartURL = "https://localhost:44300/cart"
+  
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  }
+  constructor(private _cookieService:CookieService, private http: HttpClient) { }
 
-  constructor(private _cookieService:CookieService) { }
+  //post request
+  public AddOrder(order:Order) : Observable<any>  {
+    const headers = {'conteent-type': 'application/json'}
+    const body = JSON.stringify(order);
+    console.log(body)
+    return this.http.post(this.cartURL + 'games', body,{'headers':headers})
 
-
-  public AddOrder() : void  {
-    
   }
   public AddToCart(game: Game) : void {
     var cart = this.getCart();
-    cart.push(game.id);
-
+    cart.push(game);
     this._cookieService.set("cart", JSON.stringify(cart));
 
   }
-  getCart() : number[] {
-    var cart: number[] = [];
+  getCart() : Game[] {
+    var cart: Game[] = [];
 
     var jsonObject = this._cookieService.get("cart"); 
     if(jsonObject != '') {
@@ -36,4 +44,5 @@ export class CartService {
 
     }
   }
+
 }

@@ -1,19 +1,33 @@
-<p>cart works!</p>
 <body>
     <h3 class="text">Cart:</h3>
-        <div class="games" fxLayout="row wrap" fxLayoutGap="60px grid" fxLayoutAlign="start none">
-            <div fxFlex="30%" fxFlex.xs="300px" fxFlex.sm="33%" *ngFor="let game of gamesID">
+    <div class="content">
+        <div class="games" fxLayout="row wrap" fxLayoutGap="20px grid"fxLayoutAlign="start none">
+            <div fxFlex="30%" fxFlex.xs="300px" fxFlex.sm="33%" *ngFor="let game of games">
                 <mat-card class="mat-elevation-z4">
                     <mat-card-header class="header">
-                        <mat-card-title>{{game}}</mat-card-title>
+                        <mat-card-title>{{game.title}}</mat-card-title>
                     </mat-card-header>
+                    <img
+                    src="{{game.image}}"
+                    />
+                    <mat-card-content>
+                        <p>Price: {{game.price}}</p>
+                    </mat-card-content>
                     <mat-card-actions class="actions">
                         <div class="example-button-row">
                         <button mat-raised-button color="primary">Remove</button>
                         </div>
                     </mat-card-actions>
+
                 </mat-card>
             </div>
         </div>
+    </div>
+    <h3>Total amount: {{GetTotalAmount(games)}}</h3>
+    <div class="purchase">
+        <button  mat-raised-button color="primary">Purchase</button>
+    </div>
+
+
     </body>
     

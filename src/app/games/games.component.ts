@@ -21,12 +21,12 @@ export class GamesComponent implements OnInit {
 
   }
 
-  getGames(): void {
+  public getGames(): void {
     this.gameService.getGames()
       .subscribe(game => this.games = game);
 
   }
-  addToCart(game: Game) : void {
+  public addToCart(game: Game) : void {
     this.cartService.AddToCart(game);
 
   }
