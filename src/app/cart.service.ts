@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Game } from './game';
 import { Order } from './order';
-
+import { OrderItem } from './orderItem';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +19,17 @@ export class CartService {
 
   //post request
   public AddOrder(order:Order) : Observable<any>  {
-    const headers = {'conteent-type': 'application/json'}
     const body = JSON.stringify(order);
     console.log(body)
-    return this.http.post(this.cartURL + 'games', body,{'headers':headers})
+    return this.http.post(this.cartURL + "/order", body, this.httpOptions).pipe();
 
   }
+  public AddOrderItems(orderItems:OrderItem[]) : Observable<any>{
+    const body = JSON.stringify(orderItems);
+    console.log(body);
+    return this.http.post(this.cartURL + "/orderitems", body, this.httpOptions).pipe();
+  }
+
   public AddToCart(game: Game) : void {
     var cart = this.getCart();
     cart.push(game);

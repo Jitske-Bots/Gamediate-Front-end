@@ -15,7 +15,6 @@ img {
     border: 1px solid rgba(255, 255, 255, 0.18);
     
 }
-
 .actions {
     position: relative;
     top:20px;
@@ -36,8 +35,18 @@ img {
 .content {
     overflow: hidden;
     padding: 16px;
+    background-color:rgba(0, 0, 0, 0, 0.5)
 
 }
 mat-card {
-    background: grey;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+mat-card-title {
+    color: white;
+}
+mat-card-content {
+    color:white;
+}
+.text {
+    color:white;
 }

@@ -17,8 +17,12 @@ export class AppComponent {
   ngOnInit(): void {
 
   }
+  public homeBtnClick() : void {
+    this.router.navigateByUrl('')
 
-  btnClick(): void {
+  }
+
+  public btnClick(): void {
     this.router.navigateByUrl('/cart')
   }
 

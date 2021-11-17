@@ -23,3 +23,16 @@ img {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
  }
+ mat-card {
+    background-color: rgba(0, 0, 0, 0.5);
+ }
+ mat-card-title {
+    color:white;
+}
+mat-card-content {
+    color:white;
+}
+h3 {
+    color: white;
+    padding-left: 20px;
+}
