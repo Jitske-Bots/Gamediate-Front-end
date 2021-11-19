@@ -1,4 +1,4 @@
 export interface OrderItem {
-    gameid: number;
+    gameID: number;
     price: number;
 }

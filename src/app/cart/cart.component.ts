@@ -1,3 +1,4 @@
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'; 
 import { CartService } from '../cart.service';
@@ -15,6 +16,8 @@ export class CartComponent implements OnInit {
 
     public games: Game[] = [];
     public totalAmount:number = 0;
+    newOrder: Order = {} as Order; 
+    newOrderItems: OrderItem[] = {} as OrderItem[]
 
   constructor(private route:Router, private cartService: CartService) { }
 
@@ -37,15 +40,20 @@ export class CartComponent implements OnInit {
   //then gets an array of orderItems
   //the orderitems will get in the back-end the orderID
   private addOrder(total : number): void {
-    var order: Order = {accountid: 1, totalamount: total}
-    var orderItems: OrderItem[] = this.addOrderItems();
-    this.cartService.AddOrder(order).subscribe(data => {
-      console.log(data)
+    this.newOrder.accountid = 1;
+    this.newOrder.totalamount = total;
+    this.cartService.AddOrder(this.newOrder).subscribe(order => {
+      this.newOrder = order
     });
-    this.cartService.AddOrderItems(orderItems).subscribe(data =>{
-      console.log(data);
-    })
+    this.addOrderItemsDB();
 
+
+  }
+  private addOrderItemsDB() {
+    this.newOrderItems = this.addOrderItems();
+    this.cartService.AddOrderItems(this.newOrderItems).subscribe(orderItems =>{
+      this.newOrderItems = orderItems
+    });
   }
   //ToDo: needs to be done in back-end
   public GetTotalAmount(games : Game[]) : number {
@@ -66,7 +74,7 @@ export class CartComponent implements OnInit {
     this.games = this.getCart();
     this.games.forEach(function (value) {
       var orderItem:OrderItem = {
-        gameid: value.id,
+        gameID: value.id,
         price: value.price
 
       };
