@@ -13,12 +13,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { CartComponent } from './cart/cart.component';
 import { CookieService } from 'ngx-cookie-service';
+import { OrderConfirmedComponent } from './order-confirmed/order-confirmed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GamesComponent,
-    CartComponent
+    CartComponent,
+    OrderConfirmedComponent
   ],
   imports: [
     BrowserModule,

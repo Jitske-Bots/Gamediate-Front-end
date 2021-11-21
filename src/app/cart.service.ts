@@ -27,12 +27,6 @@ export class CartService {
     return this.http.post(this.addOrderURL, order, this.httpOptions);
 
   }
-  //post request
-  public AddOrderItems(orderItems:OrderItem[]) : Observable<any>{
-    const body = JSON.stringify(orderItems);
-    console.log(body);
-    return this.http.post(this.addOrderItemsURL, orderItems, this.httpOptions);
-  }
 
   public AddToCart(game: Game) : void {
     var cart = this.getCart();
@@ -40,7 +34,7 @@ export class CartService {
     this._cookieService.set("cart", JSON.stringify(cart));
 
   }
-  getCart() : Game[] {
+  public getCart() : Game[] {
     var cart: Game[] = [];
 
     var jsonObject = this._cookieService.get("cart"); 
@@ -52,6 +46,9 @@ export class CartService {
       return cart;
 
     }
+  }
+  public clearCart() : void {
+    this._cookieService.delete("cart");
   }
 
 }

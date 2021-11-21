@@ -1,6 +1,7 @@
 import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'; 
+import { CookieService } from 'ngx-cookie-service';
 import { CartService } from '../cart.service';
 import { Game } from '../game';
 import { Order } from '../order';
@@ -31,28 +32,19 @@ export class CartComponent implements OnInit {
   public getCart():Game[]{
     return this.cartService.getCart();
   }
-  //wil first call addOrder, to add an order
-  //then call addOrderItems, to add the orderItems to the db
+
   public btnPurchase(games : Game[]) :void {
     this.addOrder(this.GetTotalAmount(games))
+    this.cartService.clearCart();
+    this.btnOrder();
   }
-  //first makes an order
-  //then gets an array of orderItems
-  //the orderitems will get in the back-end the orderID
+
   private addOrder(total : number): void {
     this.newOrder.accountid = 1;
     this.newOrder.totalamount = total;
+    this.newOrder.orderitems = this.addOrderItems();
     this.cartService.AddOrder(this.newOrder).subscribe(order => {
       this.newOrder = order
-    });
-    this.addOrderItemsDB();
-
-
-  }
-  private addOrderItemsDB() {
-    this.newOrderItems = this.addOrderItems();
-    this.cartService.AddOrderItems(this.newOrderItems).subscribe(orderItems =>{
-      this.newOrderItems = orderItems
     });
   }
   //ToDo: needs to be done in back-end
@@ -63,11 +55,6 @@ export class CartComponent implements OnInit {
     });
     return total;
   }
-
-  //loops through games, to get the gameID's
-  //makes an orderItem with the gameID and price
-  //adds all orderItems to an array of orderItems
-  //returns the array
   private addOrderItems():OrderItem[] {
     var orderItems: OrderItem[] = [];
 
@@ -82,6 +69,9 @@ export class CartComponent implements OnInit {
     });
     return orderItems;
 
+  }
+  private btnOrder(): void {
+    this.route.navigateByUrl('/confirmed')
   }
 
 }
