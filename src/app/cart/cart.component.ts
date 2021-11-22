@@ -73,5 +73,13 @@ export class CartComponent implements OnInit {
   private btnOrder(): void {
     this.route.navigateByUrl('/confirmed')
   }
+  public removeFromCart(id:number) : void {
+    this.cartService.removeFromCart(id);
+    this.refresh();
+
+  }
+  private refresh(): void {
+    window.location.reload();
+}
 
 }

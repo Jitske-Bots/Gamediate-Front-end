@@ -48,7 +48,17 @@ export class CartService {
     }
   }
   public clearCart() : void {
-    this._cookieService.delete("cart");
+    this._cookieService.deleteAll("cart");
   }
+  public removeFromCart(id:number) : void {
+    var cart: Game[] = [];
+    cart = this.getCart();
+    cart = cart.filter(item => item.id !== id);
+    //const id = cart.indexOf(game);
+    //cart.splice(id, 1);
+    this._cookieService.set("cart", JSON.stringify(cart));
+
+  }
+
 
 }
