@@ -3,6 +3,8 @@ import { Game } from '../game';
 import { GameService } from '../game.service';
 import { CartComponent } from '../cart/cart.component';
 import { CartService } from '../cart.service';
+import { Router } from '@angular/router';
+
 import {
   trigger,
   state,
@@ -48,7 +50,7 @@ export class GamesComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
-  constructor(private gameService: GameService, private cartService: CartService) { }
+  constructor(private gameService: GameService, private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.getGames();
@@ -63,6 +65,10 @@ export class GamesComponent implements OnInit {
   }
   public addToCart(game: Game) : void {
     this.cartService.AddToCart(game);
+  }
+  public viewDetails(game:Game) : void {
+    this.router.navigateByUrl('/detail')
+
   }
 
 }

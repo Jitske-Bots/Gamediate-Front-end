@@ -25,6 +25,9 @@ export class AppComponent {
   public btnClick(): void {
     this.router.navigateByUrl('/cart')
   }
+  public accountBtnClick() : void {
+    this.router.navigateByUrl('/signup')
+  }
 
 
 }

@@ -14,13 +14,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { CartComponent } from './cart/cart.component';
 import { CookieService } from 'ngx-cookie-service';
 import { OrderConfirmedComponent } from './order-confirmed/order-confirmed.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     GamesComponent,
     CartComponent,
-    OrderConfirmedComponent
+    OrderConfirmedComponent,
+    GameDetailComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +41,10 @@ import { OrderConfirmedComponent } from './order-confirmed/order-confirmed.compo
     FlexLayoutModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [CookieService,],
   bootstrap: [ AppComponent ]

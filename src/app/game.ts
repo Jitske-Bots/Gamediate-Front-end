@@ -8,5 +8,4 @@ export interface Game {
     image: string;
     developer: string;
     publisher: string;
-    addButtonState:string;
   }
