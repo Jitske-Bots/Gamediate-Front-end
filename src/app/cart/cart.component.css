@@ -36,3 +36,6 @@ h3 {
     color: white;
     padding-left: 20px;
 }
+.mat-raised-button {
+    background-color: rgba(10,35,104,1);
+}

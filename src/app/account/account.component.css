@@ -25,3 +25,6 @@ mat-form-field {
 input {
     color:white;
 }
+.mat-raised-button {
+    background-color: rgba(10,35,104,1);
+}

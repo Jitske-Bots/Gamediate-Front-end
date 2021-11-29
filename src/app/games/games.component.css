@@ -50,3 +50,6 @@ mat-card-content {
 .text {
     color:white;
 }
+.mat-raised-button {
+    background-color: rgba(10,35,104,1);
+}

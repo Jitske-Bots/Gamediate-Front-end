@@ -29,3 +29,9 @@ mat-form-field.mat-form-field {
 mat-label {
     color:white;
 }
+button {
+    background-color:aqua;
+}
+.mat-raised-button {
+    background-color: rgba(10,35,104,1);
+}
