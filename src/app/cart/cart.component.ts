@@ -7,6 +7,7 @@ import { Game } from '../game';
 import { Order } from '../order';
 import { OrderItem } from '../orderItem';
 import { OrderItems } from '../orderItems';
+import { Account } from '../account';
 
 @Component({
   selector: 'app-cart',
@@ -19,8 +20,9 @@ export class CartComponent implements OnInit {
     public totalAmount:number = 0;
     newOrder: Order = {} as Order; 
     newOrderItems: OrderItem[] = {} as OrderItem[]
+    public account : Account = {} as Account;
 
-  constructor(private route:Router, private cartService: CartService) { }
+  constructor(private route:Router, private cartService: CartService, private _cookieService:CookieService) { }
 
   ngOnInit(): void {
     this.games = this.getCart();
@@ -34,13 +36,19 @@ export class CartComponent implements OnInit {
   }
 
   public btnPurchase(games : Game[]) :void {
-    this.addOrder(this.GetTotalAmount(games))
-    this.cartService.clearCart();
-    this.btnOrder();
+    if(document.cookie.indexOf('user') == -1) {
+      this.route.navigateByUrl('/login')
+    }
+    else {
+      this.account = (JSON.parse(this._cookieService.get('user')))
+      this.addOrder(this.GetTotalAmount(games))
+      this.cartService.clearCart();
+      this.btnOrder();
+    }
   }
 
   private addOrder(total : number): void {
-    this.newOrder.accountid = 1;
+    this.newOrder.accountid = this.account.id;
     this.newOrder.totalamount = total;
     this.newOrder.orderitems = this.addOrderItems();
     this.cartService.AddOrder(this.newOrder).subscribe(order => {
