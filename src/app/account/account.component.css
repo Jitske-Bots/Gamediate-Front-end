@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    background-color: rgba(37, 35, 35, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(43, 44, 48, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(8, 8, 8, 0.18);
+    height: auto;
+    width: auto;
+    padding-top: 20px;
+}
+body {
+    padding-top: 10px;
+}
+h4 {
+    padding-bottom: -30px;
+}
+mat-label {
+    color:white;
+}
+mat-form-field {
+    padding-right: 10px;
+}
+input {
+    color:white;
+}

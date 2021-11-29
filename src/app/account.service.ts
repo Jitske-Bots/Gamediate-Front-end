@@ -1,5 +1,5 @@
 import { ErrorHandler, Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Account } from './account';
 import { Login } from './login';
@@ -15,6 +15,7 @@ export class AccountService {
   private accountURL = "https://localhost:44300/account"
   private registerURL = this.accountURL + "/signup"
   private loginURL = this.accountURL + "/login"
+  private getUserURL = this.accountURL + "/get"
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -45,5 +46,9 @@ export class AccountService {
     }
     window.alert(errorMessage);
     return throwError(errorMessage);
+  }
+
+  public getUser(account:Account) : Observable<Account> {
+    return this.http.get<Account>(this.getUserURL, this.httpOptions);
   }
 }

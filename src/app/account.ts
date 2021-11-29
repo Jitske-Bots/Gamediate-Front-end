@@ -1,12 +1,12 @@
 export interface Account {
     id: number;
-    firstname: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     address: string;
-    housenumber: string;
-    postalcode: string;
+    houseNumber: string;
+    postalCode: string;
     city: string;
-    phonenumber: number;
+    phoneNumber: number;
     email: string;
     password: string;
 }

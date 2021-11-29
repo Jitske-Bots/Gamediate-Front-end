@@ -25,17 +25,16 @@ export class LoginComponent implements OnInit {
   }
   public loginClick(account:Account) : void {
     console.log(account);
-    this.signIn = account;
-    this.accountService.login(this.signIn).subscribe(account => {
+    this.accountService.login(account).subscribe(account => {
       this.signIn = account
     },
     error => {
       this.errors = error;
     },
     () => {
+      this._cookieService.set("user", JSON.stringify(this.signIn));
       this.router.navigateByUrl('');
     }
     );
-    this._cookieService.set("user", JSON.stringify(this.signIn.email));
   }
 }

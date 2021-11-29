@@ -25,7 +25,25 @@ export class AppComponent {
     this.router.navigateByUrl('/cart')
   }
   public accountBtnClick() : void {
-    this.router.navigateByUrl('/login')
+    var getCookie = this.getAccountCookie()
+    console.log(getCookie);
+    if(!getCookie) {
+      this.router.navigateByUrl('/login')
+    }
+    else if(getCookie) {
+      this.router.navigateByUrl('/account')
+    }
+
+  }
+  public getAccountCookie() : boolean {
+    console.log(this._cookieService.get('user'));
+    if(document.cookie.indexOf('user') == -1) {
+      return false;
+    }
+    else {
+      return true
+    }
+
   }
 
 
