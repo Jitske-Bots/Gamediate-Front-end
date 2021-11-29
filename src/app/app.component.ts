@@ -21,12 +21,11 @@ export class AppComponent {
     this.router.navigateByUrl('')
 
   }
-
   public btnClick(): void {
     this.router.navigateByUrl('/cart')
   }
   public accountBtnClick() : void {
-    this.router.navigateByUrl('/signup')
+    this.router.navigateByUrl('/login')
   }
 
 

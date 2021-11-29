@@ -7,6 +7,7 @@ import { OrderConfirmedComponent } from './order-confirmed/order-confirmed.compo
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   { path: '', component: GamesComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'confirmed', component: OrderConfirmedComponent},
   { path: 'detail', component: GameDetailComponent},
   { path: 'signup', component: SignupComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'account', component:AccountComponent}
 ];
 
 @NgModule({

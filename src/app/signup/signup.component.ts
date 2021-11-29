@@ -22,5 +22,6 @@ export class SignupComponent implements OnInit {
       this.accountService.signUp(this.newAccount).subscribe(account => {
         this.newAccount = account
     });
+
   }
 }

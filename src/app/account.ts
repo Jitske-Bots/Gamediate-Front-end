@@ -3,7 +3,7 @@ export interface Account {
     firstname: string;
     lastname: string;
     address: string;
-    housenumber: number;
+    housenumber: string;
     postalcode: string;
     city: string;
     phonenumber: number;
