@@ -16,6 +16,8 @@ export class AccountService {
   private registerURL = this.accountURL + "/signup"
   private loginURL = this.accountURL + "/login"
   private getUserURL = this.accountURL + "/get"
+  private editUser = this.accountURL + "/edit"
+
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -50,5 +52,11 @@ export class AccountService {
 
   public getUser(account:Account) : Observable<Account> {
     return this.http.get<Account>(this.getUserURL, this.httpOptions);
+  }
+  public editAccount(account:Account) : Observable<any> {
+    const body = JSON.stringify(account);
+    console.log(body);
+    return this.http.post(this.editUser, account, this.httpOptions);
+
   }
 }

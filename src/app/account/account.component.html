@@ -1,14 +1,23 @@
-<body>
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+
+  <body>
     <div class="wrapper">
         <meta name="referrer" content="unsafe-url">
           <form ngNativeValidate #userForm="ngForm">
             <mat-form-field appearance="fill" >
               <mat-label>{{account.firstName}}</mat-label>
-              <input matInput type="text" name="firstname" placeholder="First Name" ngModel>
+              <input matInput type="text" name="firstName" placeholder="First Name" ngModel>
             </mat-form-field>
             <mat-form-field appearance="fill" >
               <mat-label>{{account.lastName}}</mat-label>
-              <input matInput type="text" name="lastname" placeholder="Last Name" ngModel>
+              <input matInput type="text" id="lastName" name="lastName" placeholder="Last Name" ngModel>
+              <script type="text/javascript">
+                document.querySelector('input[name="lastName"]').value = '{{account.lastName}}';
+              </script>
             </mat-form-field>
             <br/>
             <mat-form-field appearance="fill" >
@@ -17,7 +26,7 @@
             </mat-form-field>
             <mat-form-field appearance="fill" >
               <mat-label>{{account.houseNumber}}</mat-label>
-              <input matInput type="text" name="housenumber" placeholder="House Number" ngModel>
+              <input matInput type="text" name="houseNumber" placeholder="House Number" ngModel>
             </mat-form-field>
             <br/>
             <mat-form-field appearance="fill" >
@@ -26,15 +35,15 @@
             </mat-form-field>
             <mat-form-field appearance="fill" >
               <mat-label>{{account.postalCode}}</mat-label>
-              <input matInput type="text" name="postalcode" placeholder="Postal Code" ngModel>
+              <input matInput type="text" name="postalCode" placeholder="Postal Code" ngModel>
             </mat-form-field>
             <br/>
             <mat-form-field appearance="fill" >
               <mat-label>{{account.phoneNumber}}</mat-label>
-              <input matInput type="text" name="phonenumber" placeholder="Phone Number" ngModel>
+              <input matInput type="text" name="phoneNumber" placeholder="Phone Number" ngModel>
             </mat-form-field>
             <br/>
-            <button mat-raised-button color="primary" type="submit">
+            <button mat-raised-button color="primary" type="submit" (click)="btnEdit(userForm.value)">
               Confirm edit
             </button>
           </form>
@@ -44,3 +53,5 @@
         Logout
     </button>
 </body>
+</html>
+
