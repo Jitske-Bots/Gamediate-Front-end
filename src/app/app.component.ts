@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import {webSocket, WebSocketSubject} from 'rxjs/webSocket';
+import { SignalrService } from './signalr.service';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +11,34 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'gamediate-front-end';
+  hubHelloMessage: string = "";
 
-  constructor(private router: Router, private _cookieService:CookieService) {
+  constructor(private router: Router, private _cookieService:CookieService, public signalrService: SignalrService) {
 
   }
   ngOnInit(): void {
+    this.signalrService.hubHelloMessage.subscribe((hubHelloMessage: string) => {
+      this.hubHelloMessage = hubHelloMessage;
+    });
+    
+    this.signalrService.connection
+      .invoke('Hello')
+      .catch(error => {
+        console.log(`SignalrDemoHub.Hello() error: ${error}`);
+        alert('SignalrDemoHub.Hello() error!, see console for details.');
+      }
+    );
 
+  }
+  public favoriteBtnClick() : void {
+    var getCookie = this.getAccountCookie()
+    console.log(getCookie);
+    if(!getCookie) {
+      this.router.navigateByUrl('/login')
+    }
+    else if(getCookie) {
+      this.router.navigateByUrl('/wishlist')
+    }
   }
   public homeBtnClick() : void {
     this.router.navigateByUrl('')
@@ -45,6 +68,5 @@ export class AppComponent {
     }
 
   }
-
 
 }

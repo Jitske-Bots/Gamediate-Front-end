@@ -28,7 +28,7 @@ export class AccountService {
   public signUp(account:Account) : Observable<any> {
     const body = JSON.stringify(account);
     console.log(body)
-    return this.http.post(this.registerURL, account, this.httpOptions);
+    return this.http.post(this.registerURL, account, this.httpOptions).pipe(catchError(this.handleSignUpError));
     
   }
   public login(account:Account) : Observable<any> {
@@ -45,6 +45,18 @@ export class AccountService {
     } else {
       // Server-side errors
       errorMessage = `Wrong password or email! Please try again`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+  }
+  private handleSignUpError(error: HttpErrorResponse) {
+    let errorMessage = 'Unknown error!';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side errors
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // Server-side errors
+      errorMessage = `Email already exists!`;
     }
     window.alert(errorMessage);
     return throwError(errorMessage);

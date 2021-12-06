@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,7 +21,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountComponent } from './account/account.component';
-
+import { SignalrService } from './signalr.service';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AccountComponent } from './account/account.component';
     GameDetailComponent,
     SignupComponent,
     LoginComponent,
-    AccountComponent
+    AccountComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +49,18 @@ import { AccountComponent } from './account/account.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [CookieService,],
+  providers: [CookieService,
+    SignalrService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (signalrService: SignalrService) => () => signalrService.initiateSignalrConnection(),
+      deps: [SignalrService],
+      multi: true,
+    }
+  
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

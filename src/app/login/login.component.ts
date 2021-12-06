@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       this.errors = error;
     },
     () => {
+      console.log(this.signIn);
       this._cookieService.set("user", JSON.stringify(this.signIn));
       this.router.navigateByUrl('');
     }

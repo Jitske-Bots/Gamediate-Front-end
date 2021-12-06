@@ -53,3 +53,6 @@ mat-card-content {
 .mat-raised-button {
     background-color: rgba(10,35,104,1);
 }
+.favorite-button {
+    color:white;
+}

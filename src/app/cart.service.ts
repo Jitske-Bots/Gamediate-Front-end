@@ -44,7 +44,6 @@ export class CartService {
     }
     else {
       return cart;
-
     }
   }
   public clearCart() : void {

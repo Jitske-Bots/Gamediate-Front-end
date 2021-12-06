@@ -4,6 +4,10 @@ import { GameService } from '../game.service';
 import { CartComponent } from '../cart/cart.component';
 import { CartService } from '../cart.service';
 import { Router } from '@angular/router';
+import { WishlistItem } from '../wishlistItem';
+import { WishlistService } from '../wishlist.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Account } from '../account';
 
 import {
   trigger,
@@ -44,13 +48,19 @@ import {
 export class GamesComponent implements OnInit {
 
   games: Game[] = [];
+  wishlistItems : WishlistItem[] = [];
+  account: Account = {} as Account;
+  _item: WishlistItem = {} as WishlistItem;
+
+
   isOpen = true;
 
   private toggle() {
     this.isOpen = !this.isOpen;
   }
 
-  constructor(private gameService: GameService, private cartService: CartService, private router: Router) { }
+  constructor(private gameService: GameService, private cartService: CartService, 
+    private router: Router, private wishlistService: WishlistService, private cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.getGames();
@@ -68,6 +78,48 @@ export class GamesComponent implements OnInit {
   }
   public viewDetails(game:Game) : void {
     this.router.navigateByUrl('/detail')
+
+  }
+  //check if game is added to wishlist
+  public favorited(gameID:number) : void {
+
+  }
+  //adding item to db
+  public btnFavorite(gameID: number) : void {
+    var item: WishlistItem = {} as WishlistItem
+    var getCookie = this.getAccountCookie()
+    console.log(getCookie);
+    if(!getCookie) {
+      this.router.navigateByUrl('/login')
+
+    }
+    else if(getCookie) {
+      this.account = (JSON.parse(this.cookieService.get("user")));
+      item.accountid = this.account.id;
+      item.gameid = gameID;
+      this.wishlistItems.push(item);
+      this.wishlistService.add(item).subscribe(item => {
+        this._item = item;
+      });
+    }
+    console.log(this._item);
+
+    
+    
+
+  }
+  //get wishlistitems 
+  private getWishlistItems() : void {
+
+  }
+  public getAccountCookie() : boolean {
+    console.log(this.cookieService.get('user'));
+    if(document.cookie.indexOf('user') == -1) {
+      return false;
+    }
+    else {
+      return true
+    }
 
   }
 

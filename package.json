@@ -22,6 +22,8 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@microsoft/signalr": "^6.0.0",
+    "@types/signalr": "^2.2.37",
     "ngx-cookie-service": "^13.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
