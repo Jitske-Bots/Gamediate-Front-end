@@ -2,12 +2,12 @@ import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'; 
 import { CookieService } from 'ngx-cookie-service';
-import { CartService } from '../cart.service';
-import { Game } from '../game';
-import { Order } from '../order';
-import { OrderItem } from '../orderItem';
-import { OrderItems } from '../orderItems';
-import { Account } from '../account';
+import { CartService } from '../../Services/cart.service';
+import { Game } from '../../Models/game';
+import { Order } from '../../Models/order';
+import { OrderItem } from '../../Models/orderItem';
+import { OrderItems } from '../../Models/orderItems';
+import { Account } from '../../Models/account';
 
 @Component({
   selector: 'app-cart',

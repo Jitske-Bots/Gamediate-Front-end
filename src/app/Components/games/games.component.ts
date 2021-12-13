@@ -1,13 +1,13 @@
 import { Component, OnInit, } from '@angular/core';
-import { Game } from '../game';
-import { GameService } from '../game.service';
+import { Game } from '../../Models/game';
+import { GameService } from '../../Services/game.service';
 import { CartComponent } from '../cart/cart.component';
-import { CartService } from '../cart.service';
+import { CartService } from '../../Services/cart.service';
 import { Router } from '@angular/router';
-import { WishlistItem } from '../wishlistItem';
-import { WishlistService } from '../wishlist.service';
+import { WishlistItem } from '../../Models/wishlistItem';
+import { WishlistService } from '../../Services/wishlist.service';
 import { CookieService } from 'ngx-cookie-service';
-import { Account } from '../account';
+import { Account } from '../../Models/account';
 
 import {
   trigger,
@@ -71,7 +71,6 @@ export class GamesComponent implements OnInit {
   public getGames(): void {
     this.gameService.getGames()
       .subscribe(game => this.games = game);
-
   }
   public addToCart(game: Game) : void {
     this.cartService.AddToCart(game);
@@ -95,14 +94,14 @@ export class GamesComponent implements OnInit {
     }
     else if(getCookie) {
       this.account = (JSON.parse(this.cookieService.get("user")));
-      item.accountid = this.account.id;
-      item.gameid = gameID;
+      item.accountID = this.account.id;
+      item.gameID = gameID;
       this.wishlistItems.push(item);
       this.wishlistService.add(item).subscribe(item => {
         this._item = item;
       });
     }
-    console.log(this._item);
+    console.log(this.account);
 
     
     

@@ -1,0 +1,58 @@
+img {
+    max-width: 250px;
+    max-height: 150px;
+    min-width: 250px;
+    min-height: 150px; 
+ }
+ #card {
+     min-height: 100%;
+     min-width: 100%;
+     background-color: rgba(0, 0, 0, 0, 0.5);
+     box-shadow: 0 8px 32px 0 rgba(43, 44, 48, 0.37);
+     backdrop-filter: blur(4px);
+     -webkit-backdrop-filter: blur(4px);
+     border-radius: 10px;
+     border: 1px solid rgba(255, 255, 255, 0.18);
+     
+ }
+ .actions {
+     position: relative;
+     top:20px;
+ }
+ .header {
+     height: 80px;
+ }
+ .games {
+     justify-content: center;
+     padding-left: 70px;
+     overflow-x: hidden;
+ 
+ }
+ .text {
+     padding-left: 70px;
+     padding-top: 30px;
+ }
+ .content {
+     overflow: hidden;
+     padding: 16px;
+     background-color:rgba(0, 0, 0, 0, 0.5)
+ 
+ }
+ mat-card {
+     background-color: rgba(0, 0, 0, 0.5);
+ }
+ mat-card-title {
+     color: white;
+ }
+ mat-card-content {
+     color:white;
+ }
+ .text {
+     color:white;
+ }
+ .mat-raised-button {
+     background-color: rgba(10,35,104,1);
+ }
+ .favorite-button {
+     color:white;
+ }

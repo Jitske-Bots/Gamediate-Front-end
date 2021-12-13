@@ -14,6 +14,14 @@ export class SignalrService {
     this.hubHelloMessage = new BehaviorSubject<string>("");
   }
 
+  //this is a asynchronus task (the program moves to the next line of code 
+  //before the task finishes)
+  //Promise takes two arguments
+  //resolve and reject are two functions themselves
+  //inside this inner function we perform the asynchronous processing
+  //when ready we can call resolve();
+  //the promise is resolved on succesfull connection
+  //and is rejected if the signalR connection fails
   public initiateSignalrConnection(): Promise<void>{
     return new Promise((resolve, reject) => {
       this.connection = new signalR.HubConnectionBuilder()

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { AccountService } from '../account.service';
-import { Account } from '../account';
+import { AccountService } from '../../Services/account.service';
+import { Account } from '../../Models/account';
 
 @Component({
   selector: 'app-account',

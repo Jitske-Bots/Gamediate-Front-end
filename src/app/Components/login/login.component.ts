@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Account } from '../account';
-import { AccountService } from '../account.service';
-import { Login } from '../login';
+import { Account } from '../../Models/account';
+import { AccountService } from '../../Services/account.service';
+import { Login } from '../../Models/login';
 import { CookieService } from 'ngx-cookie-service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 

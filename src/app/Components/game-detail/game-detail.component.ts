@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Game } from '../game';
-import { CartService } from '../cart.service';
+import { Game } from '../../Models/game';
+import { CartService } from '../../Services/cart.service';
 import { GamesComponent } from '../games/games.component';
 
 @Component({

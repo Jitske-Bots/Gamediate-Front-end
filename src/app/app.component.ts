@@ -3,7 +3,7 @@ import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import {webSocket, WebSocketSubject} from 'rxjs/webSocket';
-import { SignalrService } from './signalr.service';
+import { SignalrService } from './Services/signalr.service';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +29,9 @@ export class AppComponent {
       }
     );
 
+  }
+  public chatBtnClick() : void {
+    this.router.navigateByUrl('/chat')
   }
   public favoriteBtnClick() : void {
     var getCookie = this.getAccountCookie()

@@ -1,8 +1,8 @@
 import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Account } from './account';
-import { Login } from './login';
+import { Account } from '../Models/account';
+import { Login } from '../Models/login';
 import { CookieService } from 'ngx-cookie-service';
 import { catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';

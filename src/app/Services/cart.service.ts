@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
-import { Game } from './game';
-import { Order } from './order';
-import { OrderItem } from './orderItem';
-import { OrderItems } from './orderItems';
+import { Game } from '../Models/game';
+import { Order } from '../Models/order';
+import { OrderItem } from '../Models/orderItem';
+import { OrderItems } from '../Models/orderItems';
 
 @Injectable({
   providedIn: 'root'
