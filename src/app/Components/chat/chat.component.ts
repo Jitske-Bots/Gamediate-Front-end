@@ -11,7 +11,7 @@ export class ChatComponent implements OnInit {
 
   constructor(private chatService: ChatService) { }
 
-  msg: Message = new Message();
+  msg: Message = {} as Message;
   msgInboxArray: Message[] = [];
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class ChatComponent implements OnInit {
     }
   }
   addToInbox(obj: Message) {
-    let newObj = new Message();
+    let newObj = {} as Message;
     newObj.user = obj.user;
     newObj.msgText = obj.msgText;
     this.msgInboxArray.push(newObj);

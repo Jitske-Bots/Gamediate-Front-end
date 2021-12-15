@@ -14,7 +14,7 @@ export class ChatService {
 
   readonly POST_URL = "https://localhost:44360/chat/send";
 
-  private receivedMessageObject: Message = new Message();
+  private receivedMessageObject: Message = {} as Message;
   private sharedObj = new Subject<Message>();
 
   constructor(private http: HttpClient) { 
