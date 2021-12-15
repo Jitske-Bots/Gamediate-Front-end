@@ -20,7 +20,7 @@ export class ChatComponent implements OnInit {
   }
   public send(): void {
     if(this.msg) {
-      if(this.msg.user.length == 0 || this.msg.user.length == 0){
+      if(this.msg.user.length == 0 || this.msg.msgText.length == 0){
         window.alert("Both fields are required.");
         return;
       } else {
