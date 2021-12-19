@@ -18,6 +18,7 @@ export class WishlistComponent implements OnInit {
   public games : Game[] = [];
   public wishlistGames : Game[] = [];
   public gameIDS: number[] = []
+  public removedItem : boolean = false;
  
   constructor(private wishlistService: WishlistService, private cookieService: CookieService,
     private gameService: GameService) { }
@@ -25,6 +26,14 @@ export class WishlistComponent implements OnInit {
   ngOnInit(): void {
     this.getGames();
     this.getWishlist();
+
+  }
+  public removeItem(gameid : number) : void {
+    var item : any = this.wishlist.find(item => item.gameID === gameid);
+    this.wishlistService.removeItem(item.id).subscribe(item => {
+      this.removedItem = item;
+    });
+    window.location.reload();
 
   }
 
@@ -53,4 +62,5 @@ export class WishlistComponent implements OnInit {
     this.gameService.getGames()
       .subscribe(game => this.games = game);
   }
+  
 }

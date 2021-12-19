@@ -30,7 +30,6 @@ export class AccountComponent implements OnInit {
     this.account = _account;
     console.log(this.account);
   }
-  //toDo: checking needs to be done in back-end
   public btnEdit(_account:Account) : void {
     _account.postalCode
     if(_account.firstName === "") {

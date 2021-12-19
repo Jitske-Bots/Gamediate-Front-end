@@ -26,14 +26,10 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   public signUp(account:Account) : Observable<any> {
-    const body = JSON.stringify(account);
-    console.log(body)
     return this.http.post(this.registerURL, account, this.httpOptions).pipe(catchError(this.handleSignUpError));
     
   }
   public login(account:Account) : Observable<any> {
-    const body = JSON.stringify(account);
-    console.log(body)
     return this.http.post(this.loginURL, account, this.httpOptions).pipe(catchError(this.handleError));
   }
 
@@ -56,7 +52,12 @@ export class AccountService {
       errorMessage = `Error: ${error.error.message}`;
     } else {
       // Server-side errors
-      errorMessage = `Email already exists!`;
+      if(error.status == 404) {
+        errorMessage = 'Not all fields are filled in!'
+      }
+      else {
+        errorMessage = `Email already exists!`;
+      }
     }
     window.alert(errorMessage);
     return throwError(errorMessage);
@@ -66,8 +67,6 @@ export class AccountService {
     return this.http.get<Account>(this.getUserURL, this.httpOptions);
   }
   public editAccount(account:Account) : Observable<any> {
-    const body = JSON.stringify(account);
-    console.log(body);
     return this.http.post(this.editUser, account, this.httpOptions);
 
   }

@@ -17,7 +17,6 @@ export class SignupComponent implements OnInit {
   }
   
   public onClickSubmit(account:Account) : void {
-    console.log(account);
       this.newAccount = account;
       this.accountService.signUp(this.newAccount).subscribe(account => {
         this.newAccount = account

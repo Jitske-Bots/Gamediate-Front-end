@@ -1,6 +1,7 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,8 +54,10 @@ import { ChatComponent } from './Components/chat/chat.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [CookieService,
+  providers: [
+    CookieService,
     SignalrService,
+    HttpClient,
     {
       provide: APP_INITIALIZER,
       useFactory: (signalrService: SignalrService) => () => signalrService.initiateSignalrConnection(),
