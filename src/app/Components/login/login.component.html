@@ -2,13 +2,13 @@
 <div class="flex-container">
   <meta name="referrer" content="unsafe-url">
     <form ngNativeValidate #userForm="ngForm">
-      <mat-form-field appearance="fill" class="email" >
+      <mat-form-field appearance="fill" class="email"  >
         <mat-label>Email</mat-label>
-        <input matInput type="text" name="email" placeholder="Email" ngModel>
+        <input matInput type="text" name="email" placeholder="Email" id="emailInput" ngModel>
       </mat-form-field>
       <mat-form-field appearance="fill" class="password">
         <mat-label>Password</mat-label>
-        <input matInput type="text" name="password" placeholder="Password" ngModel>
+        <input matInput type="text" name="password" placeholder="Password" id="passwordInput" ngModel>
       </mat-form-field>
       <br/>
       <button mat-raised-button color="primary" type="submit" (click)="loginClick(userForm.value)">

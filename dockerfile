@@ -13,7 +13,8 @@ WORKDIR /app
 COPY package.json /app
 #install node modules
 RUN npm install
-RUN npm install ngx-cookie-service 
+RUN npm install ngx-cookie-service
+RUN npm install @microsoft/signalr
 #copies the entire application into the app directory
 COPY . /app
 #npm run buils runs the build field from the package.json scripts field.
