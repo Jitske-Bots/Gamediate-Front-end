@@ -7,14 +7,14 @@
     "build": "ng build",
     "prod": "ng build --prod",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
+    "test": "ng test --source-map=false --watch=false --browsers=ChromeHeadlessCustom",
     "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:ci": "npm run clean && npm run test && npm run build:prod",
     "cypress:open": "./node_modules/.bin/cypress open",
     "cypress:run": "./node_modules/.bin/cypress run",
-    "test-headless": "ng test --watch=false --browsers=ChromeHeadless"
+    "test-headless": "ng test --source-map=false --watch=false --browsers=ChromeHeadlessCustom"
   },
   "private": true,
   "dependencies": {
