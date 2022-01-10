@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
-import { Account } from '../../Models/account';
+import { expect } from '@jest/globals';
+
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -43,7 +43,7 @@ describe('LoginComponent', () => {
       email: 'janedoe@gmail.com', password: 'strongpassword'
     };
     component.loginClickTest(component.signIn);
-    expect(component.canLogin).toBeTrue();
+    expect(component.canLogin).toBe(true);
   });
   
   it('should NOT be able to login', () =>{
@@ -53,7 +53,7 @@ describe('LoginComponent', () => {
       email: 'janed@gmil.com', password: 'strongpassword'
     };
     component.loginClickTest(component.signIn);
-    expect(component.canLogin).toBeFalse();
+    expect(component.canLogin).toBeFalsy();
   });
 
 });

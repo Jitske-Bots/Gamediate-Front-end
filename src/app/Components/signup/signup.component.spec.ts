@@ -8,7 +8,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { waitForAsync } from '@angular/core/testing';
 import {AccountData} from '../../mock-data/accountData'
-
+import { expect } from '@jest/globals';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;

@@ -7,8 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {WishlistData} from '../../mock-data/wishlistData'
 import {GameData} from '../../mock-data/gameData'
-
-
+import { expect } from '@jest/globals';
 
 describe('WishlistComponent', () => {
   let component: WishlistComponent;

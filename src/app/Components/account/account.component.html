@@ -22,7 +22,7 @@
             <br/>
             <mat-form-field appearance="fill" >
               <mat-label>{{account.address}}</mat-label>
-              <input matInput type="text" name="address" placeholder="Address" ngModel>
+              <input matInput type="text" id="address" name="address" placeholder="Address" ngModel>
             </mat-form-field>
             <mat-form-field appearance="fill" >
               <mat-label>{{account.houseNumber}}</mat-label>
@@ -31,7 +31,7 @@
             <br/>
             <mat-form-field appearance="fill" >
               <mat-label>{{account.city}}</mat-label>
-              <input matInput type="text" name="city" placeholder="city" ngModel>
+              <input matInput type="text" id="city" name="city" placeholder="city" ngModel>
             </mat-form-field>
             <mat-form-field appearance="fill" >
               <mat-label>{{account.postalCode}}</mat-label>
@@ -43,13 +43,13 @@
               <input matInput type="text" name="phoneNumber" placeholder="Phone Number" ngModel>
             </mat-form-field>
             <br/>
-            <button mat-raised-button color="primary" type="submit" (click)="btnEdit(userForm.value)">
+            <button mat-raised-button color="primary" id="submit" type="submit" (click)="btnEdit(userForm.value)">
               Confirm edit
             </button>
           </form>
       </div>
     <br/>
-    <button mat-raised-button color="primary" type="submit" (click)="btnLogout()">
+    <button mat-raised-button color="primary" id="logout" type="submit" (click)="btnLogout()">
         Logout
     </button>
 </body>

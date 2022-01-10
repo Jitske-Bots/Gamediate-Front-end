@@ -5,7 +5,7 @@
 <h3 class="text">Games:</h3>
 <div class= "content" >
     <div class="games" fxLayout="row wrap" fxLayoutGap="60px grid" fxLayoutAlign="start none">
-        <div fxFlex="30%" fxFlex.xs="300px" fxFlex.sm="33%" *ngFor="let game of games">
+        <div fxFlex="30%" fxFlex.xs="300px" fxFlex.sm="33%" *ngFor="let game of games; let i = index">
             <mat-card class="mat-elevation-z4" id="card">
                 <mat-card-header class="header">
                     <mat-card-title>{{game.title}}</mat-card-title>
@@ -20,14 +20,14 @@
                 </mat-card-content>
                 <mat-card-actions class="actions">
                     <div class="page-wrapper">
-                        <button mat-raised-button color="primary" id="addtocart" (click)="addToCart(game)">
+                        <button mat-raised-button color="primary" id="{{ 'game' + i }}" (click)="addToCart(game)">
                           Add to Cart
                           <span class="cart-item"></span>
                         </button>
                         <button mat-raised-button color="primary" id="details">
                             View
                         </button>
-                        <button mat-icon-button class="favorite-button" aria-label="account-button with account icon" (click)="btnFavorite(game.id)"> 
+                        <button mat-icon-button class="favorite-button" id="{{ 'fav' + i }}" aria-label="account-button with account icon" (click)="btnFavorite(game.id)"> 
                             <mat-icon>favorite_border</mat-icon>
                           </button>
                       </div>

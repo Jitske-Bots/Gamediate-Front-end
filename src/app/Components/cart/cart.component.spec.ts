@@ -10,6 +10,8 @@ import { Account } from '../../Models/account';
 import {OrderData} from '../../mock-data/orderData'
 import {OrderItemsData} from '../../mock-data/orderItemsData'
 import {GameData} from '../../mock-data/gameData'
+import { expect } from '@jest/globals';
+
 
 describe('CartComponent', () => {
   let component: CartComponent;
