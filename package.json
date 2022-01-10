@@ -7,7 +7,7 @@
     "build": "ng build",
     "prod": "ng build --prod",
     "watch": "ng build --watch --configuration development",
-    "test": "npm test --browsers=ChromeHeadlessCustom",
+    "test": "npm test --watch=false --code-coverage",
     "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
