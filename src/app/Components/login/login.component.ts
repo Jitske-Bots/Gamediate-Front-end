@@ -5,6 +5,7 @@ import { AccountService } from '../../Services/account.service';
 import { Login } from '../../Models/login';
 import { CookieService } from 'ngx-cookie-service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AccountData } from 'src/app/mock-data/accountData';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
 
   public signIn: Account = {} as Account; 
   public errors:string = {} as string;
+  public mockAccounts : Account[] = {} as Account[]
+  public canLogin : boolean = {} as boolean;
 
   constructor(private router: Router, private accountService: AccountService, private _cookieService:CookieService) { }
 
@@ -37,5 +40,21 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('');
     }
     );
+  }
+  public loginClickTest(account:Account) : void {
+    let loggedIn = false;
+    const data: AccountData = new AccountData();
+    this.mockAccounts = data.getMockData();
+    this.mockAccounts.forEach(function (value) {
+      if(value.email == account.email) {
+        loggedIn = true;
+      };
+    });
+    if(loggedIn) {
+      this.canLogin = true;
+    }
+    else if(!loggedIn) {
+      this.canLogin = false;
+    }    
   }
 }

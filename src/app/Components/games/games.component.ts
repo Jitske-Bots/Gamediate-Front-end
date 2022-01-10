@@ -9,40 +9,11 @@ import { WishlistService } from '../../Services/wishlist.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Account } from '../../Models/account';
 
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  // ...
-} from '@angular/animations';
-
 @Component({
   selector: 'app-games',
   templateUrl: './games.component.html',
   styleUrls: ['./games.component.css'],
-  animations: [
-    trigger('openClose', [
-      // ...
-      state('open', style({
-        height: '200px',
-        opacity: 1,
-        backgroundColor: 'yellow'
-      })),
-      state('closed', style({
-        height: '100px',
-        opacity: 0.8,
-        backgroundColor: 'blue'
-      })),
-      transition('open => closed', [
-        animate('1s')
-      ]),
-      transition('closed => open', [
-        animate('0.5s')
-      ]),
-    ]),
-  ]
+  animations: []
 
 })
 export class GamesComponent implements OnInit {
@@ -51,13 +22,6 @@ export class GamesComponent implements OnInit {
   wishlistItems : WishlistItem[] = [];
   account: Account = {} as Account;
   _item: WishlistItem = {} as WishlistItem;
-
-
-  isOpen = true;
-
-  private toggle() {
-    this.isOpen = !this.isOpen;
-  }
 
   constructor(private gameService: GameService, private cartService: CartService, 
     private router: Router, private wishlistService: WishlistService, private cookieService: CookieService) { }
@@ -102,9 +66,6 @@ export class GamesComponent implements OnInit {
       });
     }
     console.log(this.account);
-
-    
-    
 
   }
   //get wishlistitems 

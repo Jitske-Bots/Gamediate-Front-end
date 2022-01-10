@@ -8,6 +8,7 @@ import { Order } from '../../Models/order';
 import { OrderItem } from '../../Models/orderItem';
 import { OrderItems } from '../../Models/orderItems';
 import { Account } from '../../Models/account';
+import { OrderData } from 'src/app/mock-data/orderData';
 
 @Component({
   selector: 'app-cart',
@@ -17,10 +18,11 @@ import { Account } from '../../Models/account';
 export class CartComponent implements OnInit {
 
     public games: Game[] = [];
-    public totalAmount:number = 0;
+    public totalAmount: number = 0;
     newOrder: Order = {} as Order; 
     newOrderItems: OrderItem[] = {} as OrderItem[]
     public account : Account = {} as Account;
+    public Orders : Order[] = {} as Order[];
 
   constructor(private route:Router, private cartService: CartService, private _cookieService:CookieService) { }
 
@@ -46,6 +48,12 @@ export class CartComponent implements OnInit {
       this.btnOrder();
     }
   }
+  public addOrderTest(OrderItems : OrderItem[], total: number) : void {
+    this.newOrder.accountid = this.account.id;
+    this.newOrder.totalamount = total;
+    this.newOrder.orderitems = OrderItems;
+    this.Orders.push(this.newOrder);
+  }
 
   private addOrder(total : number): void {
     this.newOrder.accountid = this.account.id;
@@ -55,7 +63,6 @@ export class CartComponent implements OnInit {
       this.newOrder = order
     });
   }
-  //ToDo: needs to be done in back-end
   public GetTotalAmount(games : Game[]) : number {
     var total:number = 0;
     games.forEach(function (value) {

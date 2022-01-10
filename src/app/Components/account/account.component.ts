@@ -12,13 +12,15 @@ import { Account } from '../../Models/account';
 export class AccountComponent implements OnInit {
 
   account: Account = {} as Account;
+  editedAccount : Account = {} as Account;
 
   constructor(private _cookieService: CookieService, private router: Router, 
     private accountService:AccountService) { }
 
   ngOnInit(): void {
-    this.getAccount()
-
+    if(document.cookie.indexOf('user') != -1) {
+      this.getAccount()
+    }
   }
   public btnLogout() : void {
     this._cookieService.delete('user');
@@ -31,7 +33,6 @@ export class AccountComponent implements OnInit {
     console.log(this.account);
   }
   public btnEdit(_account:Account) : void {
-    _account.postalCode
     if(_account.firstName === "") {
       _account.firstName = this.account.firstName;
     }
@@ -66,6 +67,35 @@ export class AccountComponent implements OnInit {
       this.account = _account
     });
     console.log(this.account);
+
+  }
+  public btnEditTest(_account : Account) : void {
+    if(_account.firstName === "") {
+      _account.firstName = this.account.firstName;
+    }
+    if(_account.lastName === "") {
+      _account.lastName = this.account.lastName;
+    }
+    if(_account.address === "") {
+      _account.address = this.account.address;
+    }
+    if(_account.houseNumber === "") {
+      _account.houseNumber = this.account.houseNumber;
+    }
+    if(_account.city === "") {
+      _account.city = this.account.city;
+    }
+    if(_account.postalCode === "") {
+      _account.postalCode = this.account.postalCode;
+    }
+    if(_account.phoneNumber.toString() === "") {
+      _account.phoneNumber = this.account.phoneNumber;
+    }
+    _account.id = this.account.id;
+    _account.email = this.account.email;
+    _account.password = this.account.password;
+
+    this.editedAccount = _account;
 
   }
 }

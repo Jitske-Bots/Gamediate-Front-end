@@ -4,7 +4,7 @@ import { GamesComponent } from './games.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {GameData} from '../../mock-data/gameData'
 
 describe('GamesComponent', () => {
   let component: GamesComponent;
@@ -32,5 +32,17 @@ describe('GamesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  
+  describe("show games", function () {    
+    beforeEach(function(){
+      spyOn(window.console, 'log');
+    });
+    it('should print games to console', function(){
+      const data: GameData = new GameData();
+      component.games = data.getMockData();
+      component.ngOnInit()
+      expect(window.console.log).toHaveBeenCalled();
+    })
   });
 });

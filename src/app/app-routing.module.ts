@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { GamesComponent } from './Components/games/games.component';
 import { OrderConfirmedComponent } from './Components/order-confirmed/order-confirmed.component';
-import { GameDetailComponent } from './Components/game-detail/game-detail.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { AccountComponent } from './Components/account/account.component';
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: '', component: GamesComponent},
   { path: 'cart', component: CartComponent},
   { path: 'confirmed', component: OrderConfirmedComponent},
-  { path: 'detail', component: GameDetailComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: LoginComponent},
   { path: 'account', component:AccountComponent},

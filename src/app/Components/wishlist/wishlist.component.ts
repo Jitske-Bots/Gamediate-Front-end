@@ -25,7 +25,10 @@ export class WishlistComponent implements OnInit {
   
   ngOnInit(): void {
     this.getGames();
-    this.getWishlist();
+    if(document.cookie.indexOf('user') != -1) {
+      this.getWishlist();
+    }
+
 
   }
   public removeItem(gameid : number) : void {
@@ -35,6 +38,10 @@ export class WishlistComponent implements OnInit {
     });
     window.location.reload();
 
+  }
+  public removeItemTest(gameID: number) : void {
+    var item: any = this.wishlist.find(item => item.gameID === gameID);
+    this.wishlist.splice(item, 1);
   }
 
   private getWishlist() : void {
@@ -47,8 +54,7 @@ export class WishlistComponent implements OnInit {
     });
 
   }
-  //toDo: make filter function in back-end
-  private addGamesToList() : void {
+  public addGamesToList() : void {
     for(let i=0; i<this.wishlist.length; i++){
       for(let j=0; j <this.games.length; j++) {
         if(this.wishlist[i].gameID == this.games[j].id) {

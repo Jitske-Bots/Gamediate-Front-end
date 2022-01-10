@@ -6,8 +6,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-
-
+import { Account } from '../../Models/account';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -35,6 +34,26 @@ describe('LoginComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  
+  it('should be able to login', () =>{
+    component.signIn = { 
+      id: 1, firstName: 'Jane', lastName: 'Doe', address: 'street', houseNumber: '13A',
+      postalCode: '4321WS', city: 'Amsterdam', phoneNumber: 634567454, 
+      email: 'janedoe@gmail.com', password: 'strongpassword'
+    };
+    component.loginClickTest(component.signIn);
+    expect(component.canLogin).toBeTrue();
+  });
+  
+  it('should NOT be able to login', () =>{
+    component.signIn = { 
+      id: 1, firstName: 'Jane', lastName: 'Doe', address: 'street', houseNumber: '13A',
+      postalCode: '4321WS', city: 'Amsterdam', phoneNumber: 634567454, 
+      email: 'janed@gmil.com', password: 'strongpassword'
+    };
+    component.loginClickTest(component.signIn);
+    expect(component.canLogin).toBeFalse();
   });
 
 });

@@ -15,7 +15,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { CartComponent } from './Components/cart/cart.component';
 import { CookieService } from 'ngx-cookie-service';
 import { OrderConfirmedComponent } from './Components/order-confirmed/order-confirmed.component';
-import { GameDetailComponent } from './Components/game-detail/game-detail.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { LoginComponent } from './Components/login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -32,7 +31,6 @@ import { ChatComponent } from './Components/chat/chat.component';
     GamesComponent,
     CartComponent,
     OrderConfirmedComponent,
-    GameDetailComponent,
     SignupComponent,
     LoginComponent,
     AccountComponent,
