@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';       // import signalR
 import { HttpClient } from '@angular/common/http';
-import { Message } from '../Models/Message';
+import { ChatMessage } from '../Models/chatMessage';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -14,12 +14,12 @@ export class ChatService {
 
   readonly POST_URL = "https://localhost:44360/chat/send";
 
-  private receivedMessageObject: Message = {} as Message;
+  private receivedMessageObject: ChatMessage = {} as ChatMessage;
 
   //An Observer can subscribe to the Subject and receive value from it. 
   //Subject adds them to its collection observers.
   //The Subject also implements the next, error & complete methods.
-  private sharedObj = new Subject<Message>();
+  private sharedObj = new Subject<ChatMessage>();
 
   constructor(private http: HttpClient) { 
     this.connection.onclose(async () => {
@@ -54,7 +54,7 @@ export class ChatService {
     this.http.post(this.POST_URL, msgDto).subscribe(data => console.log(data));
   }
   //used to receive send messages
-  public retrieveMappedObject(): Observable<Message> {
+  public retrieveMappedObject(): Observable<ChatMessage> {
     return this.sharedObj.asObservable();
   }
 }

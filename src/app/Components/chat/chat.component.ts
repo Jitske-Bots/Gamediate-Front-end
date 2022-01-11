@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from 'src/app/Services/chat.service';
-import { Message } from 'src/app/Models/Message';
+import { ChatMessage } from 'src/app/Models/chatMessage';
 
 @Component({
   selector: 'app-chat',
@@ -11,12 +11,12 @@ export class ChatComponent implements OnInit {
 
   constructor(private chatService: ChatService) { }
 
-  msg: Message = {} as Message;
-  msgInboxArray: Message[] = [];
+  msg: ChatMessage = {} as ChatMessage;
+  msgInboxArray: ChatMessage[] = [];
 
   
   ngOnInit(): void {
-    this.chatService.retrieveMappedObject().subscribe( (receivedObj: Message) => { this.addToInbox(receivedObj);});  // calls the service method to get the new messages sent
+    this.chatService.retrieveMappedObject().subscribe( (receivedObj: ChatMessage) => { this.addToInbox(receivedObj);});  // calls the service method to get the new messages sent
 
   }
   // Send the message via a service
@@ -35,8 +35,8 @@ export class ChatComponent implements OnInit {
   //adds the written messages to the chatBox
   //it gets a message from the service
   //then pushes it to an array
-  addToInbox(obj: Message) {
-    let newObj = {} as Message;
+  addToInbox(obj: ChatMessage) {
+    let newObj = {} as ChatMessage;
     newObj.user = obj.user;
     newObj.msgText = obj.msgText;
     this.msgInboxArray.push(newObj);
