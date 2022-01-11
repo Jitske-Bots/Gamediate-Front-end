@@ -29,10 +29,9 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm cache clean --force
-      - run: npm install
+      - run: npm cache clean --force #cleans the cache
+      - run: npm install #installs the node modules and dependencies
       - run: npm install -g @angular/cli > /dev/null
       - run: ng build
       
-      - run: npm ci
       - run: npm run test:prod
