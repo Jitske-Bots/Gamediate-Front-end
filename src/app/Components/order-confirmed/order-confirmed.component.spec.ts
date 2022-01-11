@@ -7,8 +7,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { expect } from '@jest/globals';
 
-
-
 describe('OrderConfirmedComponent', () => {
   let component: OrderConfirmedComponent;
   let fixture: ComponentFixture<OrderConfirmedComponent>;

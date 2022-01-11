@@ -6,6 +6,7 @@ p {
 }
 mat-form-field {
     outline: white;
+    padding-right: 10px;
 }
 .wrapper {
     background-color: rgba(37, 35, 35, 0.5);
@@ -22,9 +23,6 @@ mat-form-field {
 }
 mat-label {
     color:white;
-}
-mat-form-field {
-    padding-right: 10px;
 }
 input {
     color:white;

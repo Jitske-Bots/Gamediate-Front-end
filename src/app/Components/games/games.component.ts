@@ -1,7 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { Game } from '../../Models/game';
 import { GameService } from '../../Services/game.service';
-import { CartComponent } from '../cart/cart.component';
 import { CartService } from '../../Services/cart.service';
 import { Router } from '@angular/router';
 import { WishlistItem } from '../../Models/wishlistItem';
@@ -43,10 +42,6 @@ export class GamesComponent implements OnInit {
     this.router.navigateByUrl('/detail')
 
   }
-  //check if game is added to wishlist
-  public favorited(gameID:number) : void {
-
-  }
   //adding item to db
   public btnFavorite(gameID: number) : void {
     var item: WishlistItem = {} as WishlistItem
@@ -66,10 +61,6 @@ export class GamesComponent implements OnInit {
       });
     }
     console.log(this.account);
-
-  }
-  //get wishlistitems 
-  private getWishlistItems() : void {
 
   }
   public getAccountCookie() : boolean {

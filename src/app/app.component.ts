@@ -23,7 +23,7 @@ export class AppComponent {
     
     this.signalrService.connection
       .invoke('Hello')
-      .catch(error => {
+      .catch((error: any) => {
         console.log(`SignalrDemoHub.Hello() error: ${error}`);
         alert('SignalrDemoHub.Hello() error!, see console for details.');
       }

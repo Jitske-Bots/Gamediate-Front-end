@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Account } from '../../Models/account';
 import { AccountService } from '../../Services/account.service';
-import { Login } from '../../Models/login';
 import { CookieService } from 'ngx-cookie-service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AccountData } from 'src/app/mock-data/accountData';
 
 @Component({
