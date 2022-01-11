@@ -1,5 +1,4 @@
 import { Order } from "../Models/order";
-import { OrderItem } from "../Models/orderItem";
 import { OrderItemsData } from "./orderItemsData";
 
 export class OrderData {

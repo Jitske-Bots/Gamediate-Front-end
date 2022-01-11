@@ -31,6 +31,8 @@ img {
  .text {
      padding-left: 70px;
      padding-top: 30px;
+     color:white;
+
  }
  .content {
      overflow: hidden;
@@ -45,9 +47,6 @@ img {
      color: white;
  }
  mat-card-content {
-     color:white;
- }
- .text {
      color:white;
  }
  .mat-raised-button {

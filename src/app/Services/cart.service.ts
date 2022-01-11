@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Game } from '../Models/game';
 import { Order } from '../Models/order';
-import { OrderItem } from '../Models/orderItem';
-import { OrderItems } from '../Models/orderItems';
 
 @Injectable({
   providedIn: 'root'

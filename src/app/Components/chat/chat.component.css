@@ -78,7 +78,6 @@ ul {
     border: 0px solid rgba(0, 0, 0, 0);
     padding: 10px;
     flex: 1 1 0;
-    border: 1.5px solid #DD1155;
 }
 
 .msg-input:focus {
@@ -135,7 +134,6 @@ ul {
     border: 0px solid rgba(0, 0, 0, 0);
     padding: 10px;
     font-size: 15px;
-    border: 1px solid #b423d1;
 }
 
 .name-box:focus {
