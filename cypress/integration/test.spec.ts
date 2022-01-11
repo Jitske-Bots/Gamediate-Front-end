@@ -2,6 +2,8 @@
 
 /// <reference types="cypress" />
 
+import { element } from "protractor";
+
 describe('{your-app}', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('user');
