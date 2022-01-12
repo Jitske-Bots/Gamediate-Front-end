@@ -10,7 +10,10 @@ module.exports = function (config) {
         flags: ['--no-sandbox', '--disable-gpu']
       }
     },
-    basePath: '',
+    files: [
+      'global-variables.js',
+    ],
+    basePath: 'src',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),

@@ -1,3 +1,5 @@
+import "jasmine";
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {HttpClientModule} from '@angular/common/http';
 import { GamesComponent } from './games.component';
@@ -5,8 +7,6 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {GameData} from '../../mock-data/gameData';
-import { expect } from '@jest/globals';
-
 
 describe('GamesComponent', () => {
   let component: GamesComponent;

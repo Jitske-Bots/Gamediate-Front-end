@@ -1,3 +1,5 @@
+import "jasmine";
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignupComponent } from './signup.component';
@@ -6,7 +8,6 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AccountData} from '../../mock-data/accountData'
-import { expect } from '@jest/globals';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;

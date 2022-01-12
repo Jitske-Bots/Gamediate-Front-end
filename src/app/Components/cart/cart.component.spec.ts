@@ -1,3 +1,5 @@
+import "jasmine";
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CartComponent } from './cart.component';
@@ -9,7 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {OrderData} from '../../mock-data/orderData'
 import {OrderItemsData} from '../../mock-data/orderItemsData'
 import {GameData} from '../../mock-data/gameData'
-import { expect } from '@jest/globals';
 
 describe('CartComponent', () => {
   let component: CartComponent;

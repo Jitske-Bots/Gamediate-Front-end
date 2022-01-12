@@ -1,11 +1,11 @@
+import "jasmine";
+
 import { TestBed } from '@angular/core/testing';
 
 import { WishlistService } from './wishlist.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { expect } from '@jest/globals';
-
 
 describe('WishlistService', () => {
   let service: WishlistService;
