@@ -30,4 +30,5 @@ jobs:
       - run: npm install -g @angular/cli > /dev/null
       - run: ng build
       
+      - run: npm cypress:run
       - run: npm test
