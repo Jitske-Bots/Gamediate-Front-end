@@ -25,6 +25,9 @@
     ],
     "skipLibCheck": true
   },
+  "resolve.fallback": { 
+    "assert": false 
+  },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
