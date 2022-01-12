@@ -66,5 +66,8 @@
     "fs": false,
     "path": false,
     "os": false
+  },
+  "resolve.fallback": { 
+		"assert": false 
   }
 }
