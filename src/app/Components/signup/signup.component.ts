@@ -11,6 +11,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   public newAccount: Account = {} as Account; 
+  public showPassword: boolean = false;
 
   public mockData: Account[] = [];
 
@@ -19,6 +20,9 @@ export class SignupComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+  }
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
   
   public onClickSubmit(account: Account) : void {

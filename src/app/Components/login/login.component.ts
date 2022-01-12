@@ -16,14 +16,21 @@ export class LoginComponent implements OnInit {
   public errors:string = {} as string;
   public mockAccounts : Account[] = {} as Account[]
   public canLogin : boolean = {} as boolean;
+  public showPassword: boolean = false;
+
 
   constructor(private router: Router, private accountService: AccountService, private _cookieService:CookieService) { }
 
   ngOnInit(): void {
   }
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+  
   public signupBtnClick() : void {
     this.router.navigateByUrl('/signup')
   }
+  
   public loginClick(account:Account) : void {
     console.log(account);
     this.accountService.login(account).subscribe(account => {

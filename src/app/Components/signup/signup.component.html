@@ -43,7 +43,10 @@
           </mat-form-field>
           <mat-form-field appearance="fill" >
             <mat-label>Password</mat-label>
-            <input matInput type="text" name="password" placeholder="Password" ngModel>
+            <input matInput [type]="showPassword ? 'text' : 'password'" name="password" placeholder="Password" ngModel>
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+              {{showPassword?'visibility_off':'visibility'}}
+            </mat-icon>
           </mat-form-field>
           <br/>
           <button mat-raised-button color="primary" type="submit" (click)="onClickSubmit(userForm.value)">
