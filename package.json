@@ -14,7 +14,8 @@
     "build:ci": "npm run clean && npm run test && npm run build:prod",
     "cypress:open": "./node_modules/.bin/cypress open",
     "cypress:run": "./node_modules/.bin/cypress run",
-    "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage"
+    "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage",
+    "sonar":"sonar-scanner"
   },
   "private": true,
   "dependencies": {
@@ -60,6 +61,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "karma-sonarqube-unit-reporter": "^0.0.23",
     "puppeteer": "^13.0.1",
     "sonar-scanner": "^3.1.0",
     "typescript": "~4.3.5"

@@ -34,6 +34,19 @@ module.exports = function (config) {
     jasmineHtmlReporter: {
       suppressAll: true // removes the duplicated traces
     },
+    
+    plugins: [
+      require('karma-sonarqube-unit-reporter')
+    ],
+    sonarQubeUnitReporter: {
+      sonarQubeVersion: 'LATEST',
+      outputFile: 'reports/ut_report.xml',
+      overrideTestDescription: true,
+      testPaths: ['./src'],
+      testFilePattern: '.spec.ts',
+      useBrowserName: false
+    },
+    reporters: ['sonarqubeUnit'],
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/gamediate-front-end'),
       subdir: '.',
