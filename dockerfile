@@ -17,7 +17,7 @@ RUN npm install ngx-cookie-service
 RUN npm install @microsoft/signalr
 #copies the entire application into the app directory
 COPY . /app
-#npm run buils runs the build field from the package.json scripts field.
+#npm run build runs the build field from the package.json scripts field.
 RUN npm run build --prod
 #
 RUN chmod +X /app/entrypoint.sh

@@ -3,7 +3,6 @@ import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import {webSocket, WebSocketSubject} from 'rxjs/webSocket';
-import { SignalrService } from './Services/signalr.service';
 
 @Component({
   selector: 'app-root',
@@ -13,21 +12,10 @@ import { SignalrService } from './Services/signalr.service';
 export class AppComponent {
   hubHelloMessage: string = "";
 
-  constructor(private router: Router, private _cookieService:CookieService, public signalrService: SignalrService) {
+  constructor(private router: Router, private _cookieService:CookieService) {
 
   }
   ngOnInit(): void {
-    this.signalrService.hubHelloMessage.subscribe((hubHelloMessage: string) => {
-      this.hubHelloMessage = hubHelloMessage;
-    });
-    
-    this.signalrService.connection
-      .invoke('Hello')
-      .catch((error: any) => {
-        console.log(`SignalrDemoHub.Hello() error: ${error}`);
-        alert('SignalrDemoHub.Hello() error!, see console for details.');
-      }
-    );
 
   }
   public chatBtnClick() : void {

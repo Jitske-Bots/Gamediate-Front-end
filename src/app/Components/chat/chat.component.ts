@@ -16,7 +16,8 @@ export class ChatComponent implements OnInit {
 
   
   ngOnInit(): void {
-    this.chatService.retrieveMappedObject().subscribe( (receivedObj: ChatMessage) => { this.addToInbox(receivedObj);});  // calls the service method to get the new messages sent
+    this.chatService.retrieveMappedObject().subscribe( (receivedObj: ChatMessage) => 
+    { this.addToInbox(receivedObj);});  // calls the service method to get the new messages sent
 
   }
   // Send the message via a service

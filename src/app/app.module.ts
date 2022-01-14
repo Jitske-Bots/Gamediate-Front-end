@@ -2,7 +2,6 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GamesComponent } from './Components/games/games.component';
@@ -21,7 +20,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountComponent } from './Components/account/account.component';
-import { SignalrService } from './Services/signalr.service';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { ChatComponent } from './Components/chat/chat.component';
 
@@ -54,14 +52,7 @@ import { ChatComponent } from './Components/chat/chat.component';
   ],
   providers: [
     CookieService,
-    SignalrService,
     HttpClient,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (signalrService: SignalrService) => () => signalrService.initiateSignalrConnection(),
-      deps: [SignalrService],
-      multi: true,
-    }
   
   ],
   bootstrap: [ AppComponent ]

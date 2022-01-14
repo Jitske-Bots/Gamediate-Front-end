@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as signalR from '@microsoft/signalr';       // import signalR
+import * as signalR from '@microsoft/signalr';       
 import { HttpClient } from '@angular/common/http';
 import { ChatMessage } from '../Models/chatMessage';
 import { Observable, Subject } from 'rxjs';
