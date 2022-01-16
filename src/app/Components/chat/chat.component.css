@@ -50,15 +50,14 @@ ul {
 
 .ex-msg {
     margin-bottom: 10px;
-    color: #459c1a;
+    color: #9acf7f;
 
     text-align: left;
 }
 
 .in-msg {
     margin-bottom: 10px;
-    color: #DD1155;
-
+    color: white;
     text-align: right;
 }
         
@@ -104,10 +103,6 @@ ul {
     border-color: #DD1155;
     box-shadow: 0 0 5px #DD1155;
 }
-
-        
-
-
 @media screen and (max-width: 500px) {
     .ud-flex-row {
         flex-direction: column;
@@ -125,7 +120,6 @@ ul {
     margin-top: 7px;
     height: 80%;
 }
-        
 
 .name-box {
     margin-top: 10px;
@@ -136,12 +130,6 @@ ul {
     padding: 10px;
     font-size: 15px;
 }
-
-.name-box:focus {
-    outline: none;
-}
-
-
 .ud-body {
     margin: 9vh 5% 2vh;
     padding: 0 5% 0;
