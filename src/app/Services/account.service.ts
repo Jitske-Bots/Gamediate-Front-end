@@ -16,7 +16,6 @@ export class AccountService {
   private getUserURL = this.accountURL + "/get"
   private editUser = this.accountURL + "/edit"
 
-
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }

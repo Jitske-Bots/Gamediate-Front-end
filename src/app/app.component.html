@@ -1,16 +1,9 @@
 <div class="wrapper">
   <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
     <a href="" id="homeBtn" (click)="homeBtnClick()">Gamediate</a>
+    <a mat-button (click)="chatBtnClick()">chat</a>
+    <a mat-button (click)="favoriteBtnClick()">wishlist</a>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="chat-button" id="chat-button" aria-label="chat-button with chat icon" (click)="chatBtnClick()"> 
-      <mat-icon>chat</mat-icon>
-    </button>
-    <button mat-icon-button class="favorite-button" id="favorite-button" aria-label="account-button with account icon" (click)="favoriteBtnClick()"> 
-      <mat-icon>favorite</mat-icon>
-    </button>
     <button mat-icon-button class="account-button" id="account-button" aria-label="account-button with account icon" (click)="accountBtnClick()"> 
       <mat-icon>account_circle</mat-icon>
     </button>
